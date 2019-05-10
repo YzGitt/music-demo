@@ -8,7 +8,7 @@ export default {
 	eachMusicUrl:"/song/url",// 每首歌的url
 	lyric:"/lyric",// 每首歌的lyric
   djRec:"/dj/recommend",//获取电台推荐
-  djSub:"/user/dj",//获取订阅的电台
+  djSub:"/dj/sublist",//获取订阅的电台
   userFollow:"/user/follows",//用户的关注
   userInfo:"/user/detail",//用户信息
   djDetail:"/dj/detail",//获取电台详情
@@ -21,10 +21,8 @@ export default {
   HotRat:"/comment/hot",//获取热门评论（0：歌曲，1：MV）
   mvRatings:"/comment/mv",//mv全部评价
   putRat:"/comment",//发表评论（0：歌曲，1：mv）
-<<<<<<< HEAD
-=======
   searchAll:"/search",//搜索（ 1: 单曲, 10: 专辑, 100: 歌手, 1000: 歌单, 1002: 用户, 1004: MV, 1006: 歌词, 1009: 电台, 1014: 视频）
->>>>>>> 最新
+
 }
 
 

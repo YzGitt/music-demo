@@ -13,12 +13,8 @@ export default {
       }
     }).catch(error=>{
       console.log(error);});
-<<<<<<< HEAD
-=======
   },
   setSearchData({commit},search){
-
     commit(types.CHANGE_SEARCHDATA,search)
->>>>>>> 最新
   }
 }

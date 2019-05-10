@@ -56,8 +56,6 @@
                   </h5>
                 </li>
               </ul>
-<<<<<<< HEAD
-=======
                 <div class="top">
                 <h2>我收藏的MV</h2>
               </div>
@@ -84,7 +82,6 @@
                   </h5>
                 </li>
               </ul>
->>>>>>> 最新
             </div>
           </div>
     </div>
@@ -143,7 +140,6 @@ import {formatDate} from "@/filters/filter"
   .wraper-1{
     padding: 40px;
     background-color: #fff;
-    height: 893px;
     .top{
       border-bottom: 1px solid red;
       padding: 10px;

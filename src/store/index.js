@@ -8,12 +8,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state:{
-<<<<<<< HEAD
-    userInfo:{}
-=======
     userInfo:{},//用户信息
     searchData:"",//搜索信息数量
->>>>>>> 最新
   },
   mutations,
   actions

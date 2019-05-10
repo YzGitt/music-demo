@@ -24,6 +24,15 @@
         </h5>
       </li>
     </ul>
+      <div class="paged">
+          <el-pagination
+                  background
+                  layout="prev, pager, next"
+                  :total="djCount"
+                  :page-size="10"
+                  @current-change="handleCurrentChange"
+          ></el-pagination>
+      </div>
   </div>
 </template>
 
@@ -33,7 +42,9 @@
         name: "searchMv",
         data(){
           return{
-            AllMv:[]
+            AllMv:[],
+              djCount :1,
+              pag:1
           }
         },
       //过滤时间
@@ -45,12 +56,18 @@
       methods:{
           getSearchMv(){
             const txt=localStorage.getItem("search")
-            this.$axios.get("searchAll",{type:1004,keywords:txt}).then(res=>{
+            this.$axios.get("searchAll",{type:1004,keywords:txt,offset:this.pag-1,limit:10}).then(res=>{
               if (res.code===200){
                 this.AllMv=res.result.mvs
+                  this.djCount=res.result.mvCount
                 console.log(res);
               }
             })
+          },
+	      handleCurrentChange(val){
+		      console.log(val);
+		      this.pag=val*10;
+                this.getSearchMv()
           }
       },
       created(){
@@ -61,7 +78,6 @@
 
 <style lang="scss" scoped>
 div{
-  height: 587px;
   .mv-uls{
     padding-top: 11px;
     .mv-list{
@@ -135,5 +151,10 @@ div{
       }
     }
   }
+    .paged{
+        margin: 30px auto 0px;
+        display: flex;
+        justify-content: space-around;
+    }
 }
 </style>

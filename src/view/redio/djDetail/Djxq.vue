@@ -22,7 +22,7 @@
           v-loading="loading">
           <el-table-column
             prop="serialNum"
-            label="序号"
+            label="期号"
             width="50"
           >
           </el-table-column>
