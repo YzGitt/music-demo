@@ -31,9 +31,9 @@ export default new Router({
 		  component: () => import("@/view/playlist/index")
 	  },
 	  {
-		  path: '/playlist/uselist',
-		  name: 'uselist',
-		  component: () => import("@/view/playlist/uselist")
+		  path: '/playlist/change',
+		  name: 'change',
+		  component: () => import("@/view/playlist/change")
 	  },
     {
       path: '/redio',

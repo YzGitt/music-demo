@@ -26,8 +26,8 @@
                         <el-button
                                 size="large"
                                 type="danger"
-                                @click="toUseList(scope.row.id)"
-                        >歌单收藏者</el-button>
+                                @click="toChange(scope.row.id)"
+                        >批量管理</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -63,19 +63,13 @@
 			        console.log(error);
 		        })
 	        },
-
-
-
-
-
-
             //去每个歌单的列表页
 	        toDetail(id,name){
 		        this.$router.push("/music?id="+id + "&name=" + name)
 	        },
-	        //获取歌单的所有收藏者
-	        toUseList(id){
-		        this.$router.push("/playlist/uselist?id="+id)
+	        //批量管理
+	        toChange(id){
+		        this.$router.push("/playlist/change?id="+id)
             },
         },
         created(){

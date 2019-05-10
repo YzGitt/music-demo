@@ -97,7 +97,7 @@
 		},
 		created(){
 			this.getBanner();
-      this.$store.dispatch("getUserData")//获取用户信息
+        this.$store.dispatch("getUserData")//获取用户信息
 		},
 	}
 </script>
