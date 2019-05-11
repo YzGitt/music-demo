@@ -28,7 +28,7 @@
           getDjSearch(){
             const txt=localStorage.getItem("search")
             console.log(111);
-            this.$axios.get("searchAll",{type:1009,keywords:txt}).then(res=>{
+            this.$axios.get("searchAll",{type:1009,keywords:txt,limit:10}).then(res=>{
               if (res.code===200){
                 this.count=res.result.djRadiosCount;
                 this.tableData=res.result.djRadios;

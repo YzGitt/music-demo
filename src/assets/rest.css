@@ -27,12 +27,10 @@ fr{
   height: 0;
   visibility: hidden;
 }
-<<<<<<< HEAD
-=======
 .f-thide {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   word-wrap: normal;
 }
->>>>>>> 最新
+

@@ -24,6 +24,14 @@
         </h5>
       </li>
     </ul>
+    <div class="paged">
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :total="count"
+        @current-change="handleCurrentChange"
+      ></el-pagination>
+    </div>
   </div>
 </template>
 
@@ -33,7 +41,9 @@
         name: "searchMv",
         data(){
           return{
-            AllMv:[]
+            AllMv:[],//搜索到相关的MV
+            pagenum:1,//当前第几页
+            count:1
           }
         },
       //过滤时间
@@ -45,13 +55,18 @@
       methods:{
           getSearchMv(){
             const txt=localStorage.getItem("search")
-            this.$axios.get("searchAll",{type:1004,keywords:txt}).then(res=>{
+            this.$axios.get("searchAll",{type:1004,keywords:txt,offset:this.pagenum-1}).then(res=>{
               if (res.code===200){
                 this.AllMv=res.result.mvs
+                this.count=res.result.mvCount
                 console.log(res);
               }
             })
-          }
+          },
+        handleCurrentChange(val){
+            this.pagenum=val;
+            this.getSearchMv()
+        }
       },
       created(){
           this.getSearchMv()
@@ -134,6 +149,11 @@ div{
         }
       }
     }
+  }
+  .paged{
+    margin: 30px auto 0px;
+    display: flex;
+    justify-content: space-around;
   }
 }
 </style>

@@ -22,10 +22,7 @@
           <p class="p-xq">详情:{{mvDetail.desc}}</p>
         </div>
         <div class="rating">
-<<<<<<< HEAD
-=======
           <h4>评论 <span>共{{count}}条评论</span></h4>
->>>>>>> 最新
           <div class="box-rat">
             <div class="rat-img">
               <img :src="userInfo.avatarUrl" alt="">
@@ -46,10 +43,7 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
           <h4>评论 <span>共{{count}}条评论</span></h4>
-=======
->>>>>>> 最新
           <div class="rating-hot">
             <p class="p-hot">热门评论</p>
             <ul>

@@ -17,10 +17,6 @@
           <!--<router-link to="/comment" class="nav">评论</router-link>-->
         </div>
         <div class="fr myxuanyan">
-<<<<<<< HEAD
-          <router-link to="/thankyou" class="a">时光荏苒、承蒙不弃 </router-link>
-          <router-link to="/" class="b" v-if="userId"><img :src="userInfo.avatarUrl" alt=""></router-link>
-=======
           <div class="search " @keyup.enter="submit">
             <el-input
               class="inp"
@@ -32,7 +28,6 @@
           </div>
           <!--<router-link to="/thankyou" class="a">时光荏苒、承蒙不弃 </router-link>-->
           <router-link to="/login" class="b" v-if="userId"><img :src="userInfo.avatarUrl" alt=""></router-link>
->>>>>>> 最新
           <router-link to="/login" class="b" v-else><img src="@/assets/smile.png" alt=""></router-link>
         </div>
       </div>
@@ -44,17 +39,11 @@
   import {mapState}from 'vuex'
 	export default {
 		name: "playMusic",
-<<<<<<< HEAD
-        data(){
-			return{
-				userId:"",   //用户登录状态
-=======
     inject:["reload"],
         data(){
-			return{
-				userId:"",   //用户登录状态
-        input21:""
->>>>>>> 最新
+			    return{
+				    userId:"",   //用户登录状态
+            input21:""
             }
         },
         mounted(){
@@ -65,8 +54,6 @@
         computed:{
           ...mapState(["userInfo"])
         },
-<<<<<<< HEAD
-=======
         methods:{
           submit(){
             this.$router.push("/search");
@@ -74,7 +61,6 @@
             localStorage.setItem("search",this.input21)
           }
         }
->>>>>>> 最新
 	}
 </script>
 <style scoped>
@@ -98,6 +84,7 @@
     margin-right: 20px;
     display: inline-block;
     width: 200px;
+    text-align: center;
   }
   .box h1 a{
     font-family: "仿宋";
@@ -110,8 +97,6 @@
     top: 14px;
     left: 150px;
   }
-<<<<<<< HEAD
-=======
   .myxuanyan .search{
     width: 158px;
     height: 32px;
@@ -125,7 +110,6 @@
     background: transparent;opacity: 1;
 
   }
->>>>>>> 最新
   .listNav{
     display: inline-block;
     height: 70px;

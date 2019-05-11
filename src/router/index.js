@@ -55,8 +55,6 @@ export default new Router({
       name: 'MvPlay',
       component: () => import("@/view/MV/MvPlay/MvPlay")
     },
-<<<<<<< HEAD
-=======
     {
       path: '/search',
       name: 'search',
@@ -83,6 +81,5 @@ export default new Router({
         },
       ]
     },
->>>>>>> 最新
   ]
 })

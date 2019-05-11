@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
-    <router-view/>
-=======
     <router-view  v-if="isRouterAlive"/>
->>>>>>> 最新
       <div class="footerfixed"></div>
       <myfooter></myfooter>
   </div>
@@ -17,8 +13,6 @@ export default {
 	components: {
 		myfooter,
 	},
-<<<<<<< HEAD
-=======
   provide (){
     return {
       reload:this.reload
@@ -36,9 +30,7 @@ export default {
         this.isRouterAlive = true
       })
     }
-  },
-
->>>>>>> 最新
+  }
 }
 </script>
 
