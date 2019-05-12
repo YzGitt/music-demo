@@ -140,7 +140,10 @@ import {formatDate} from "@/filters/filter"
   .wraper-1{
     padding: 40px;
     background-color: #fff;
+<<<<<<< HEAD
     /*height: 893px;*/
+=======
+>>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
     .top{
       border-bottom: 1px solid red;
       padding: 10px;

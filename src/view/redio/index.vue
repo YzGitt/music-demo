@@ -125,7 +125,7 @@
         },
         //获取用户订阅电台
         getUserDJ(userId){
-          this.$axios.get("djSub",{ uid: userId }).then(res=>{
+          this.$axios.get("djSub").then(res=>{
             console.log(res);
             if (res.code===200){
 

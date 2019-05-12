@@ -12,6 +12,17 @@ let xhr = {
 			})
 		})
 	},
+	//cookie
+	cookieGet(url,params){
+		return new Promise((resolve,reject) => {
+			base.get(allapi[url],{params}).then(res => {
+				resolve(res.data)
+			}).catch(err => {
+				console.log(err)
+				reject(err)
+			})
+		})
+	},
 	post(url,params){
 		return new Promise((resolve,reject) => {
 			base.post(allapi[url],params).then(res => {

@@ -166,7 +166,7 @@
               }
             })
           },
-          //
+          //评论
           putRats(){
             const id = this.$route.params.id
             const txt=this.textarea
