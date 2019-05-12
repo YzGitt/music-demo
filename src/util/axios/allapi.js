@@ -22,10 +22,6 @@ export default {
   mvRatings:"/comment/mv",//mv全部评价
   putRat:"/comment",//发表评论（0：歌曲，1：mv）
   searchAll:"/search",//搜索（ 1: 单曲, 10: 专辑, 100: 歌手, 1000: 歌单, 1002: 用户, 1004: MV, 1006: 歌词, 1009: 电台, 1014: 视频）
-<<<<<<< HEAD
-=======
-
->>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
 }
 
 

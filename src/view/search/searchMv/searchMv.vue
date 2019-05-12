@@ -24,7 +24,6 @@
         </h5>
       </li>
     </ul>
-<<<<<<< HEAD
     <div class="paged">
       <el-pagination
         background
@@ -33,17 +32,6 @@
         @current-change="handleCurrentChange"
       ></el-pagination>
     </div>
-=======
-      <div class="paged">
-          <el-pagination
-                  background
-                  layout="prev, pager, next"
-                  :total="djCount"
-                  :page-size="10"
-                  @current-change="handleCurrentChange"
-          ></el-pagination>
-      </div>
->>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
   </div>
 </template>
 
@@ -53,15 +41,11 @@
         name: "searchMv",
         data(){
           return{
-<<<<<<< HEAD
             AllMv:[],//搜索到相关的MV
             pagenum:1,//当前第几页
-            count:1
-=======
-            AllMv:[],
+            count:1,
               djCount :1,
               pag:1
->>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
           }
         },
       //过滤时间
@@ -70,40 +54,25 @@
           return formatDate(time)
         }
       },
-      methods:{
-          getSearchMv(){
-            const txt=localStorage.getItem("search")
-<<<<<<< HEAD
-            this.$axios.get("searchAll",{type:1004,keywords:txt,offset:this.pagenum-1}).then(res=>{
-              if (res.code===200){
-                this.AllMv=res.result.mvs
-                this.count=res.result.mvCount
-=======
-            this.$axios.get("searchAll",{type:1004,keywords:txt,offset:this.pag-1,limit:10}).then(res=>{
-              if (res.code===200){
-                this.AllMv=res.result.mvs
-                  this.djCount=res.result.mvCount
->>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
-                console.log(res);
-              }
-            })
-          },
-<<<<<<< HEAD
-        handleCurrentChange(val){
-            this.pagenum=val;
-            this.getSearchMv()
+      methods: {
+        getSearchMv() {
+          const txt = localStorage.getItem("search")
+          this.$axios.get("searchAll", {type: 1004, keywords: txt, offset: this.pagenum - 1}).then(res => {
+            if (res.code === 200) {
+              this.AllMv = res.result.mvs
+              this.count = res.result.mvCount
+            }
+          })
+        },
+        handleCurrentChange(val) {
+          console.log(val);
+          this.pag = val * 10;
+          this.getSearchMv()
         }
-=======
-	      handleCurrentChange(val){
-		      console.log(val);
-		      this.pag=val*10;
-                this.getSearchMv()
-          }
->>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
       },
       created(){
-          this.getSearchMv()
-      }
+        this.getSearchMv()
+        }
     }
 </script>
 
@@ -182,18 +151,15 @@ div{
       }
     }
   }
-<<<<<<< HEAD
   .paged{
     margin: 30px auto 0px;
     display: flex;
     justify-content: space-around;
   }
-=======
     .paged{
         margin: 30px auto 0px;
         display: flex;
         justify-content: space-around;
     }
->>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
 }
 </style>

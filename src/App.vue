@@ -30,12 +30,8 @@ export default {
         this.isRouterAlive = true
       })
     }
-<<<<<<< HEAD
   }
-=======
-  },
->>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
-}
+  }
 </script>
 
 <style>

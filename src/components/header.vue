@@ -17,11 +17,7 @@
           <!--<router-link to="/comment" class="nav">评论</router-link>-->
         </div>
         <div class="fr myxuanyan">
-<<<<<<< HEAD
-=======
           <!--<router-link to="/thankyou" class="a">时光荏苒、承蒙不弃 </router-link>-->
-          <router-link to="/" class="b" v-if="userId"><img :src="userInfo.avatarUrl" alt=""></router-link>
->>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
           <div class="search " @keyup.enter="submit">
             <el-input
               class="inp"
@@ -44,19 +40,12 @@
   import {mapState}from 'vuex'
 	export default {
 		name: "playMusic",
-<<<<<<< HEAD
     inject:["reload"],
-        data(){
-			    return{
-				    userId:"",   //用户登录状态
-            input21:""
-=======
         inject:["reload"],
         data(){
 			return{
 				userId:"",   //用户登录状态
-                 input21:"",//搜索
->>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
+        input21:"",//搜索
             }
         },
         mounted(){
@@ -97,11 +86,8 @@
     margin-right: 20px;
     display: inline-block;
     width: 200px;
-<<<<<<< HEAD
     text-align: center;
-=======
       text-align: center;
->>>>>>> 3d7263a56a3b3f098ad469c432bd447cc10a509a
   }
   .box h1 a{
     font-family: "仿宋";
