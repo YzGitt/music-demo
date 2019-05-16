@@ -2,6 +2,7 @@ export default {
 	// base:"http://localhost:8080",
 	hotMusic:"/top/list?idx=1",//  idx="1": 云音乐热歌榜,
 	login:"/login/cellphone", //手机号网易云登录
+  logout:"/logout",//退出登录
 	myMusiclist:"/user/playlist" ,//我喜欢的列表
 	myMusicDetail:"/playlist/detail", //手机号网易云我喜欢的列表详情
 	banner:"/banner",// 可获取 banner( 轮播图 ) 数据
@@ -16,6 +17,7 @@ export default {
   djSong:"/song/url",//播放电台歌曲
   mvLized:"/personalized/mv",//推荐MV
   mvRite:"top/mv",//mv排行
+  MvCol:"/mv/sublist",//收藏的mv
   mvDetail: "/mv/detail",//mv详情
   mvUrl:"/mv/url",//mv播放地址
   HotRat:"/comment/hot",//获取热门评论（0：歌曲，1：MV）

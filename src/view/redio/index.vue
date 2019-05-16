@@ -41,33 +41,34 @@
               </div>
               <div class="right fr">
                 <div class="redio-title">
-                  <h3 class="fl"><a href="#" class="a-right">我订阅的电台（28）</a></h3>
+                  <h3 class="fl"><a href="#" class="a-right">我订阅的电台（{{count}}）</a></h3>
+                  <router-link  to="#" class="a-left more">更多></router-link>
                 </div>
                 <ul class="redio-lis">
-                  <li class="itm" @mouseenter="enter1()" @mouseleave="leave1()">
+                  <li class="itm" @mouseenter="enter1(index)" @mouseleave="leave1(index)" v-for="(mydj,index) in djFollow" :key="index">
                     <a href="#" class="a-left fl">
-                      <img src="https://p1.music.126.net/mil4t8eq3V56SzKQ6pJouA==/109951163379065597.jpg?param=177y177" alt="">
+                      <img :src="mydj.picUrl" alt="">
                       <i class="u-bub u-bub-1">
                         <b class="f-alpha">
-                          <em>12</em>
+                          <em>{{mydj.newProgramCount}}</em>
                         </b>
                       </i>
                     </a>
                     <div class="cnt fl">
                       <h3 class="f-thide">
-                        <a href="#" class="s-fcl">
-                          声临其境·3D陪伴
-                        </a>
+                        <router-link :to="{name:'Djxq',params:{id: mydj.id}}"  class="s-fcl">
+                          {{mydj.name}}
+                        </router-link>
                       </h3>
                       <p class="f-thide">
-                        <a href="#" class="s-fc4">
-                          by 双马尾馨儿
-                        </a>
+                        <router-link  :to="{name:'Djxq',params:{id: mydj.id}}" class="s-fc4">
+                          by {{mydj.dj.nickname}}
+                        </router-link>
                       </p>
                     </div>
-                    <el-button type="danger" icon="el-icon-delete" circle class="btn" v-show="flag1"></el-button>
+                    <el-button type="danger" icon="el-icon-delete" circle class="btn" v-show="flag1&&cindex===index"></el-button>
                     <span class="tag">
-                      84期
+                      {{mydj.programCount}}期
                     </span>
                   </li>
                 </ul>
@@ -77,7 +78,6 @@
         </div>
       </div>
 </template>
-
 <script>
   import headerDom from "@/components/header";
     export default {
@@ -89,6 +89,8 @@
             Djlis:[],//电台推荐列表
             djFollow:[],//订阅的电台列表
             bannerListdj:[],//轮播图
+            cindex:-1,//控制单行操作显隐
+            count:1,//订阅的电台数
           }
       },
         components:{
@@ -106,10 +108,12 @@
             console.log(error);
           })
         },
-        enter1(){
+        enter1(i){
+          this.cindex = i
           this.flag1=true
         },
-        leave1(){
+        leave1(i){
+          this.cindex = -1
           this.flag1=false
         },
         //获取推荐电台
@@ -125,10 +129,11 @@
         },
         //获取用户订阅电台
         getUserDJ(userId){
-          this.$axios.get("djSub").then(res=>{
+          this.$axios.get("djSub",{limit:10}).then(res=>{
             console.log(res);
             if (res.code===200){
-
+              this.count=res.count
+                this.djFollow=res.djRadios
             }
           }).catch(error=>{
             console.log(error);
@@ -356,7 +361,7 @@ div{
                 opacity: 0.5;
               }
               .tag{
-                margin: 1px 0 0 10px;
+                margin: 1px 5px 0 10px;
                 /*line-height: 16px;*/
                 float: right;
                 color: #999;

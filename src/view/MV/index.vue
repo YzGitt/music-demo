@@ -60,25 +60,26 @@
                 <h2>我收藏的MV</h2>
               </div>
                 <ul class="mv-uls clearfix">
-                <li class="mv-list" v-for="(mv,index) in mvRites" :key="index">
-                  <router-link :to="{name:'MvPlay',params:{id: mv.id}}" >
+                <li class="mv-list" v-for="(mv,index) in mvMycol" :key="index">
+                  <router-link :to="{name:'MvPlay',params:{id: mv.vid}}" >
                     <div class="img">
-                      <img :src="mv.cover" alt="">
+                      <img :src="mv.coverUrl" alt="">
                       <p class="p-tr">
-                        {{mv.playCount>10000?mv.playCount/10000+"万":mv.playCount}}
+                        {{mv.playTime>10000?mv.playTime/10000+"万":mv.playTime}}
                       </p>
                       <p class="p-bl">
+                        {{mv.durationms | formatDate}}
                       </p>
                     </div>
                   </router-link>
                   <h4  class="title f-thide">
                     <router-link to="#" class="title-h4">
                       <img class="bgc" src="../../view/MV/imgs/MV.png"></img>
-                      {{mv.name}}
+                      {{mv.title}}
                     </router-link>
                   </h4>
                   <h5 class="name f-thide">
-                    <router-link to="#" class="name-a">{{mv.artistName}}</router-link>
+                    <router-link to="#" class="name-a">{{mv.creator[0].userName}}</router-link>
                   </h5>
                 </li>
               </ul>
@@ -99,9 +100,11 @@ import {formatDate} from "@/filters/filter"
           return{
             AllMv:[],//推荐MV
             mvRites:[],//mv排行
+            mvMycol:[],//收藏的mv
           }
       },
       methods:{
+          //推荐MV
           getAllMv(){
             this.$axios.get("mvLized").then(res=>{
               if (res.code===200){
@@ -109,23 +112,34 @@ import {formatDate} from "@/filters/filter"
               }
             })
           },
+        //mv排行
           getMvRite(){
             this.$axios.get("mvRite",{limit:10}).then(res=>{
-              console.log(res);
               if (res.code===200){
                 this.mvRites=res.data
               }
             })
-          }
+          },
+        //我收藏的MV
+        getMyMv(){
+          this.$axios.get("MvCol",{limit:10}).then(res=>{
+            console.log(res);
+            if (res.code===200){
+              this.mvMycol=res.data
+            }
+          })
+
+        }
       },
       filters:{
         formatDate(time){
           return formatDate(time)
-        }
+        },
       },
       created(){
           this.getAllMv()
           this.getMvRite()
+          this.getMyMv()
       }
     }
 </script>

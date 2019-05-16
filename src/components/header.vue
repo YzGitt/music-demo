@@ -16,9 +16,9 @@
           <!--<router-link to="/picture" class="nav">照片</router-link>-->
           <!--<router-link to="/comment" class="nav">评论</router-link>-->
         </div>
-        <div class="fr myxuanyan">
+        <div class="fr myxuanyan clearfix">
           <!--<router-link to="/thankyou" class="a">时光荏苒、承蒙不弃 </router-link>-->
-          <div class="search " @keyup.enter="submit">
+          <div class="search fl" @keyup.enter="submit">
             <el-input
               class="inp"
               placeholder="请输入内容"
@@ -28,7 +28,16 @@
             </el-input>
           </div>
           <!--<router-link to="/thankyou" class="a">时光荏苒、承蒙不弃 </router-link>-->
-          <router-link to="/login" class="b" v-if="userId"><img :src="userInfo.avatarUrl" alt=""></router-link>
+          <!--<router-link to="/login" class="b" v-if="userId"><img :src="userInfo.avatarUrl" alt=""></router-link>-->
+          <!--<router-link to="/login" class="b" v-else><img src="@/assets/smile.png" alt=""></router-link>-->
+          <el-dropdown class="b fl" style="height: 46px;" v-if="userId"  @command="handleCommand">
+            <router-link to="#" class="b" ><img :src="userInfo.avatarUrl" alt=""></router-link>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item command="a">个人中心</el-dropdown-item>
+              <el-dropdown-item command="logoutUser">退出登录</el-dropdown-item>
+              <el-dropdown-item command="thank">鸣谢</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
           <router-link to="/login" class="b" v-else><img src="@/assets/smile.png" alt=""></router-link>
         </div>
       </div>
@@ -41,7 +50,6 @@
 	export default {
 		name: "playMusic",
     inject:["reload"],
-        inject:["reload"],
         data(){
 			return{
 				userId:"",   //用户登录状态
@@ -56,11 +64,36 @@
         computed:{
           ...mapState(["userInfo"])
         },
-        methods:{
-          submit(){
+        methods: {
+          //搜索
+          submit() {
             this.$router.push("/search");
             this.reload()
-            localStorage.setItem("search",this.input21)
+            localStorage.setItem("search", this.input21)
+          },
+          //退出登录
+          handleCommand(command) {
+            if (command === "logoutUser") {
+              localStorage.clear()
+              this.reload()
+              this.$axios.get("logout").then(res => {
+                if (res.code === 200) {
+                  this.$message({
+                    center: true,
+                    showClose: true,
+                    message: "您的网易云账户已经退出成功.....",
+                    type: "success"
+                  });
+
+                }
+              })
+            }
+            if (command === "thank") {
+              this.$router.push("/thankyou");
+            }
+            if (command === "a") {
+              this.$router.push("/preson");
+            }
           }
         }
 	}
@@ -102,7 +135,7 @@
   }
   .myxuanyan .search{
     width: 158px;
-    height: 32px;
+    height: 70px;
     border-radius: 32px;
     padding-right: 80px;
   }

@@ -81,5 +81,10 @@ export default new Router({
         },
       ]
     },
+    {
+      path: '/preson',
+      name: 'preson',
+      component: () => import("@/view/preson/index")
+    },
   ]
 })

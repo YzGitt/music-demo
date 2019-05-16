@@ -7,5 +7,8 @@ export default {
   },
   [types.CHANGE_SEARCHDATA](state,search){
     state.searchData=search;
+  },
+  [types.LOGOUT_USERNAME](state){
+    state.userInfo={}
   }
 }

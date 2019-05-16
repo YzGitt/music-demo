@@ -7,7 +7,6 @@ export default {
     let id = localStorage.getItem("userId");
     await xhr.get("userInfo",{uid:id}).then(res=>{
       if (res.code===200){
-        console.log(res.profile);
         const userInfo = res.profile;
         commit(types.CHANGE_USERDATA,{userInfo})
       }
@@ -16,5 +15,8 @@ export default {
   },
   setSearchData({commit},search){
     commit(types.CHANGE_SEARCHDATA,search)
+  },
+  logout({commit}){
+    commit(types.LOGOUT_USERNAME)
   }
 }

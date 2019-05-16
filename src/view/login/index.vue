@@ -36,8 +36,8 @@
 export default {
   data() {
     return {
-      phoneNum: "18332725321", //登录所用的手机号 18332725321
-      pwd: "zhang11111?" //登录所用的密码    zhang11111?
+      phoneNum: "13274319587", //登录所用的手机号 18332725321
+      pwd: "Nanianxiatian123" //登录所用的密码    zhang11111?
     };
   },
   mounted() {
