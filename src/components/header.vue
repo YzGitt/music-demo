@@ -29,7 +29,7 @@
           </div>
           <!--<router-link to="/thankyou" class="a">时光荏苒、承蒙不弃 </router-link>-->
           <!--<router-link to="/login" class="b" v-if="userId"><img :src="userInfo.avatarUrl" alt=""></router-link>-->
-          <!--<router-link to="/login" class="b" v-else><img src="@/assets/smile.png" alt=""></router-link>-->
+          <!---->
           <el-dropdown class="b fl" style="height: 46px;" v-if="userId"  @command="handleCommand">
             <router-link to="#" class="b" ><img :src="userInfo.avatarUrl" alt=""></router-link>
             <el-dropdown-menu slot="dropdown">

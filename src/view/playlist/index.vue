@@ -23,11 +23,6 @@
                 <el-table-column label="操作" width="300">
                     <template slot-scope="scope">
                         <el-button  size="large" @click="toDetail(scope.row.id,scope.row.name)">查看歌单列表</el-button>
-                        <el-button
-                                size="large"
-                                type="danger"
-                                @click="toUseList(scope.row.id)"
-                        >歌单收藏者</el-button>
                     </template>
                 </el-table-column>
             </el-table>
@@ -63,12 +58,6 @@
 			        console.log(error);
 		        })
 	        },
-
-
-
-
-
-
             //去每个歌单的列表页
 	        toDetail(id,name){
 		        this.$router.push("/music?id="+id + "&name=" + name)

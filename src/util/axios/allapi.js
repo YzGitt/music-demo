@@ -2,7 +2,10 @@ export default {
 	// base:"http://localhost:8080",
 	hotMusic:"/top/list?idx=1",//  idx="1": 云音乐热歌榜,
 	login:"/login/cellphone", //手机号网易云登录
-  logout:"/logout",//退出登录
+  logout:"/captch/register",//注册
+  setUser:"/logout",//退出登录
+  getCaptcha:"/captch/sent",//获取验证码
+  conCaptcha:"/captch/verify",//确认验证码
 	myMusiclist:"/user/playlist" ,//我喜欢的列表
 	myMusicDetail:"/playlist/detail", //手机号网易云我喜欢的列表详情
 	banner:"/banner",// 可获取 banner( 轮播图 ) 数据
@@ -24,6 +27,7 @@ export default {
   mvRatings:"/comment/mv",//mv全部评价
   putRat:"/comment",//发表评论（0：歌曲，1：mv）
   searchAll:"/search",//搜索（ 1: 单曲, 10: 专辑, 100: 歌手, 1000: 歌单, 1002: 用户, 1004: MV, 1006: 歌词, 1009: 电台, 1014: 视频）
+  userSub:"/user/subcount",//用户所有的订阅详情
 }
 
 

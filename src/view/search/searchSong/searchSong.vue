@@ -31,11 +31,10 @@
         width="180"
       >
         <template slot-scope="scope">
-          <el-button size="mini" @click="getMusicDetail(scope.row.id)">查看</el-button>
           <el-button
             size="mini"
             type="danger"
-            @click="playDj(scope.row.name,scope.row.mainTrackId)"
+            @click="playMusic(scope.row.name,scope.row.id)"
           >播放</el-button>
         </template>
       </el-table-column>
@@ -81,6 +80,22 @@
           this.pagenum=val-1;
           this.getSearchSongData()
         },
+        playMusic(item, key) {
+          this.$axios.get("eachMusicUrl", { id: key }).then(res => {
+            this.$notify({
+              duration: 0,
+              title: item,
+              position: "bottom-right",
+              dangerouslyUseHTMLString: true,
+              message:
+              '<audio controls="controls" loop="loop" autoplay="autoplay" src="' +
+              res.data[0].url +
+              '"></audio>'
+            });
+          }).catch(error => {
+            console.log(error);
+          });
+        }
       },
       created(){
           this.getSearchSongData();
