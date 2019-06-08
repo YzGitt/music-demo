@@ -22,9 +22,6 @@
               <li :class="{'li-box':'searchdj'===this.$route.name}">
                 <router-link :to="{name:'searchdj'}"><em>电台</em></router-link>
               </li>
-              <li >
-                <router-link to="#"><em>单曲</em></router-link>
-              </li>
             </ul>
             <div class="content">
               <keep-alive>

@@ -12,6 +12,8 @@
             <p class="p-top">{{djData.name}}</p>
             <p class="p-footer">{{djData.rcmdText}}</p>
             <p class="p-mid">详情:{{djData.desc}}</p>
+
+            <div class="btn"><span>是否订阅：</span><el-button type="text" @click="subDj" :class="djData.subed?'on':''">{{djData.subed?"已订阅":"订阅"}}</el-button></div>
           </div>
         </div>
         <h2 class="act">节目列表 <span>共{{djCount}}期</span></h2>
@@ -93,7 +95,7 @@
           getDjDetail(){
             const id = this.$route.params.id
             this.$axios.get("djDetail",{rid:id}).then(res=>{
-              // console.log(res);
+              console.log(res);
               if (res.code===200){
                 this.djData=res.djRadio
               }
@@ -104,7 +106,7 @@
             let that = this
             const id = this.$route.params.id
             this.$axios.get("djProgram",{rid:id,limit:9900}).then(res=>{
-              console.log(res);
+              // console.log(res);
               this.djCount=res.count;
               this.tableData=res.programs;
               that.handleCurrentChange(1)
@@ -122,6 +124,7 @@
           getMusicDetail(id){
 
           },
+          //播放电台内容
           playDj(item,id){
               this.$axios.get("djSong",{id:id}).then(res=>{
                 console.log(res.data);
@@ -139,7 +142,53 @@
                   });
                 }
               })
-          }
+          },
+          //订阅电台
+          subDj(){
+            const id = this.$route.params.id
+            if (this.djData.subed){
+              this.$confirm('是否取消订阅', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+              }).then(() => {
+                this.$axios.get("djSubYn",{rid:id,t:0}).then(res=>{
+                    if (res.code===200){}
+                    this.$message({
+                      type: 'success',
+                      message: '取消订阅成功!'
+                    });
+                    this.getDjDetail()
+                })
+              }).catch(() => {
+                this.$message({
+                  type: 'info',
+                  message: '已取消'
+                });
+              });
+            }
+            else{
+              this.$confirm('是否订阅', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+              }).then(() => {
+                this.$axios.get("djSubYn",{rid:id,t:1}).then(res=>{
+                  if (res.code===200){}
+                  this.$message({
+                    type: 'success',
+                    message: '订阅成功!'
+                  });
+                  this.getDjDetail()
+                })
+              }).catch(() => {
+                this.$message({
+                  type: 'info',
+                  message: '已取消'
+                });
+              });
+            }
+          },
         },
         mounted(){
           this.getDjDetail();
@@ -179,6 +228,16 @@
         }
         .p-mid{
           margin-top: 30px;
+        }
+        .btn{
+          margin-top: 30px;
+          .on{
+            color: red;
+          }
+          button{
+            border:0;
+            background-color: #fff;
+          }
         }
       }
     }

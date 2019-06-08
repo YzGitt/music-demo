@@ -27,8 +27,6 @@
                 </el-table-column>
             </el-table>
         </div>
-
-
     </div>
 </template>
 
@@ -39,7 +37,7 @@
         data(){
 			return{
 				loveMusicListDetail:[]
-            }
+        }
         },
 		components: {
 			headerDom,

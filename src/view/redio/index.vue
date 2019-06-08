@@ -66,7 +66,7 @@
                         </router-link>
                       </p>
                     </div>
-                    <el-button type="danger" icon="el-icon-delete" circle class="btn" v-show="flag1&&cindex===index"></el-button>
+                    <!--<el-button type="danger" icon="el-icon-delete" circle class="btn" v-show="flag1&&cindex===index"></el-button>-->
                     <span class="tag">
                       {{mydj.programCount}}期
                     </span>
@@ -129,7 +129,7 @@
         },
         //获取用户订阅电台
         getUserDJ(userId){
-          this.$axios.get("djSub",{limit:10}).then(res=>{
+          this.$axios.get("djSub",{limit:11}).then(res=>{
             console.log(res);
             if (res.code===200){
               this.count=res.count
@@ -139,6 +139,7 @@
             console.log(error);
           })
         },
+        //更多用户的订阅
         //点击进入电台详情
         djDetail(id){
 
@@ -170,7 +171,11 @@ div{
       .elementimgbox{
         background-color: rgb(4,22,43);
         margin: 0 auto;
-        width: 1100px;
+        /*width: 1100px;*/
+        img{
+          width: 900px;
+          height: 300px;
+        }
       }
       .redio-top{
         margin-top: 10px;

@@ -17,6 +17,7 @@ export default {
   userInfo:"/user/detail",//用户信息
   djDetail:"/dj/detail",//获取电台详情
   djProgram:"/dj/program",//获取电台节目目录
+  djSubYn:"/dj/sub",//电台订阅与取消
   djSong:"/song/url",//播放电台歌曲
   mvLized:"/personalized/mv",//推荐MV
   mvRite:"top/mv",//mv排行
@@ -28,6 +29,7 @@ export default {
   putRat:"/comment",//发表评论（0：歌曲，1：mv）
   searchAll:"/search",//搜索（ 1: 单曲, 10: 专辑, 100: 歌手, 1000: 歌单, 1002: 用户, 1004: MV, 1006: 歌词, 1009: 电台, 1014: 视频）
   userSub:"/user/subcount",//用户所有的订阅详情
+  subEdie:"/playlist/subscribe",//收藏或取消收藏
 }
 
 

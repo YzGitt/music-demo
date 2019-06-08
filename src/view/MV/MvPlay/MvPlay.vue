@@ -172,6 +172,12 @@
             const txt=this.textarea
             this.$axios.get("putRat",{t:1,type:1,id:id,content:txt}).then(res=>{
               console.log(res);
+              if (res.code===200){
+                this.$message({
+                  message: "评论成功",
+                  type: 'success'
+                });
+              }
             })
           }
       },
