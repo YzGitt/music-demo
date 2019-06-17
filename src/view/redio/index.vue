@@ -129,7 +129,7 @@
         },
         //获取用户订阅电台
         getUserDJ(userId){
-          this.$axios.get("djSub",{limit:11}).then(res=>{
+          this.$axios.get("djSub",{limit:10}).then(res=>{
             console.log(res);
             if (res.code===200){
               this.count=res.count
