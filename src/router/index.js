@@ -21,6 +21,34 @@ export default new Router({
 		  component: () => import("@/view/thankyou/index")
 	  },
 	  {
+		path: '/inTheFuture',
+		name: 'inTheFuture',
+		component: () => import("@/view/thankyou/inTheFuture")
+		},
+		{
+			path: '/web',
+			name: 'web',
+			component: () => import("@/view/web/index")
+		},
+		{
+			path: '/comment',
+			name: 'comment',
+			component: () => import("@/view/comment/index")
+		},
+		{
+			path: '/movie',
+			name: 'movie',
+			component: () => import("@/view/movie/index")
+		},
+		{
+			path: '/picture',
+			name: 'picture',
+			component: () => import("@/view/picture/index")
+		},
+		
+		
+	  
+	  {
 		  path: '/music',
 		  name: 'music',
 		  component: () => import("@/view/music/index")
@@ -35,16 +63,16 @@ export default new Router({
 		  name: 'change',
 		  component: () => import("@/view/playlist/change")
 	  },
-    {
-      path: '/redio',
-      name: 'redio',
-      component: () => import("@/view/redio/index")
-    },
-    {
-      path: '/mv',
-      name: 'mv',
-      component: () => import("@/view/MV/index")
-    },
+    // {
+    //   path: '/redio',
+    //   name: 'redio',
+    //   component: () => import("@/view/redio/index")
+    // },
+    // {
+    //   path: '/mv',
+    //   name: 'mv',
+    //   component: () => import("@/view/MV/index")
+    // },
     {
       path: '/djdetail/:id',
       name: 'Djxq',

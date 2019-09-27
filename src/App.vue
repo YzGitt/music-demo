@@ -17,6 +17,20 @@ export default {
 </script>
 
 <style>
+.weikaifang{
+    height: 300px;
+    width: 600px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -200px;
+    font-size: 30px;
+    font-family: "楷体";
+    font-weight: 700;
+    text-align: center;
+    line-height: 300px;
+}
     .footerfixed {
         height: 70px;
     }

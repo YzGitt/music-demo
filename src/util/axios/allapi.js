@@ -2,7 +2,7 @@ export default {
 	// base:"http://localhost:8080",
 	hotMusic:"/top/list?idx=1",//  idx="1": 云音乐热歌榜,
 
-	login:"/login/cellphone?", //手机号网易云作者登录
+	login:"/login/cellphone", //手机号网易云作者登录
 	loginforUse:"/login/cellphone", //手机号网易云个人用户登录
 
 	myMusiclist:"/user/playlist" ,//我喜欢的列表

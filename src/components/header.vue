@@ -9,17 +9,17 @@
         <div class="listNav fl">
           <router-link to="/music" class="nav">音乐</router-link>
           <router-link :to="'/playlist?userId='+ userId" class="nav">个人收藏</router-link>
-          <router-link to="/redio" class="nav">电台</router-link>
-          <router-link to="/mv" class="nav">MV</router-link>
-          <!--<router-link to="/web" class="nav">web相关</router-link>-->
-          <!--<router-link to="/" class="nav">电影</router-link>-->
-          <!--<router-link to="/picture" class="nav">照片</router-link>-->
-          <!--<router-link to="/comment" class="nav">评论</router-link>-->
+          <router-link to="/inTheFuture" class="nav">站点规划</router-link>
+            <!-- <router-link to="/mv" class="nav">MV</router-link> -->
+          <router-link to="/web" class="nav">web相关</router-link>
+          <router-link to="/movie" class="nav">电影</router-link>
+          <router-link to="/picture" class="nav">照片</router-link>
+          <router-link to="/comment" class="nav">评论</router-link>
         </div>
         <div class="fr myxuanyan">
           <router-link to="/thankyou" class="a">时光荏苒、承蒙不弃 </router-link>
-          <router-link to="/" class="b" v-if="userId"><img :src="userInfo.avatarUrl" alt=""></router-link>
-          <router-link to="/login" class="b" v-else><img src="@/assets/smile.png" alt=""></router-link>
+          <!-- <router-link to="/" class="b" v-if="userId"><img :src="userInfo.avatarUrl" alt=""></router-link> -->
+          <router-link to="/" class="b"><img src="@/assets/smile.png" alt=""></router-link>
         </div>
       </div>
     </div>
@@ -27,22 +27,25 @@
   </div>
 </template>
 <script>
-  import {mapState}from 'vuex'
+  // import {mapState}from 'vuex'
 	export default {
 		name: "playMusic",
         data(){
 			return{
-				userId:"",   //用户登录状态
+				userId:localStorage.getItem("userId"),   //用户登录状态
             }
         },
         mounted(){
-			      var that= this
-	        that.userId = localStorage.getItem("userId");
-          this.$store.dispatch("getUserData")
+            var that= this
+            
+          // this.$store.dispatch("getUserData")
         },
-        computed:{
-          ...mapState(["userInfo"])
-        },
+        created(){
+
+        }
+        // computed:{
+        //   ...mapState(["userInfo"])
+        // },
 	}
 </script>
 <style scoped>
@@ -99,14 +102,23 @@
   .myxuanyan{
     height: 70px;
     line-height: 70px;
+    width: 190px;
     color: #ccc;
     cursor: pointer;
     user-select: none;
     position: relative;
   }
   .myxuanyan .a {
-    padding-right:50px;
-    display: block;
+    display: inline-block;
+    width: 145px;
+    height: 70px;
+    float: left;
+  }
+  .myxuanyan .b{
+    float:right;
+    width: 55px;
+     height: 70px;
+    display: inline-block;
   }
   .myxuanyan .b img{
     height: 40px;

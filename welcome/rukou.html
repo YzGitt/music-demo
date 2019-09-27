@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>引导页 </title>
+  <title>Huluobos - 引导页</title>
 
 
   <style type="text/css">
@@ -77,8 +77,14 @@
       transform: translate3d(0, 0, 0);
     }
     h1.transition-in,
+    h3.transition-in,
     h2.transition-in {
       visibility: visible;
+    }
+    h1.transition-in,
+    h3.transition-in,
+    h2.transition-in {
+      margin-top: 20px;
     }
     h1 [class^="letter"],
     h2 [class^="letter"] {
@@ -148,6 +154,11 @@
     #container div p strong a {
       color: #999;
       font-size: 0.5em;
+      display: inline-block;
+      margin-left: 20px;
+    }
+    #container div p strong a:hover{
+      color: #fefefe;
     }
     body,td,th {
       font-family: Lato, sans-serif;
@@ -171,11 +182,15 @@
 <div id="container">
 
   <div>
-    <h1 id="h1">jQuery、Vue、Nuxt</h1>
-    <h2 id="h2">[2018]</h2>
-    <h3 id="h3">Huluobos - 张博一</h3>
+    <h1 id="h1">Huluobos Live House</h1>
+    <h2 id="h2">[2018 - 2019]</h2>
+    <h3 id="h3" class="transition-in">Coder - 张博一</h3>
     <p>&nbsp;</p>
-    <p><strong><a href="http://localhost:3000/login">进入主站</a></strong></p>
+    <p>
+      <strong><a href="http://www.huluobos.top/#/">进入主站</a></strong>
+      <!-- <strong><a href="http://localhost:3000/login">进入主站2</a></strong> -->
+      <!-- <strong><a href="http://localhost:3000/login">进入主站2</a></strong> -->
+    </p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>

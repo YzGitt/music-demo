@@ -2,34 +2,21 @@
     <div>
         <headerDom></headerDom>
         <div class="content">
-            <h1>鸣谢</h1>
-            <p>
-                经过一个学期的辛勤与忙碌，本次毕业设计已经接近尾声，由于经验的匮乏，在设计过程中难免有
-                许多问题会考虑不周，如果没有老师的悉心指导与督促，以及设计小组的同学们的帮助与支持，也许
-                毕业设计不会这么顺利的完成。
-            </p>
-            <p>
-                毕业设计过程中，老师耐心的指导使我们受益匪浅，他扎实的理论知识与丰富的实践经验给我留
-                下了深刻的印象，也正是老师认真负责的教学态度使我们从毕业设计中真正的学会了学以致用，将课本
-                知识与实际工程中所遇到的问题相联系，整合了自己在校所学的专业知识，同时提高了我们发现问题、
-                解决问题的能力。从建筑设计开始到结构设计完成，老师对于专业知识严谨的学习精神以及对于设计
-                过程严格的要求态度成为我们在今后学习以及工作中良好的榜样，在此谨向为我们毕业设计小组辛苦了
-                一学期的老师致以最真诚的谢意。
-            </p>
-            <p>
-                回望这一学期，似乎忙碌与紧张充满了整个设计过程，但是因为有了小组成员们的关怀与帮助，使
-                得设计的过程也充满了欢乐。我们共同研究，相互讨论，遇到问题一起解决，毕业设计不仅是对我们学
-                习的检验，同时也是锻炼我们与他人协同工作的好机会。
-            </p>
-            <p>
-                在最后我要感谢学校、学院对我们的培养，为我们的学习以及毕业设计创造良好环境、提供便利条
-                件。伴随着毕业设计的结束，我们也将离开校园，有过少耕耘就有多少收获，相信我们走出校园后能将
-                自己的价值体现出来，回报父母、回报学校，为社会做自己力所能及的贡献。再一次感谢在毕业设计中
-                给予我帮助的老师和同学们，祝大家在今后的工作和生活中一切顺利！
-            </p>
+           <div class="title">SanYa</div>
+            <div class="text">
+                <div class="myCover"> “Hi! SanYa. How are you?” </div>
+                <div class="myCover"> “I am ok!” </div>
+                <div class="myCover"> “  嗯.......... ” </div>
+                <div class="myCover"> 时光荏苒，路就在脚下。 </div>
+                <div class="myCover"> 感情还需岁月磨练，平静自然了于心间。</div>
+                <div class="myCover">Huluobos！NoZuoNoDieCanFly！</div>
+            </div>
+        
             <p style="text-align: right;">
-                至此 , 敬上 !
+                至此 , 敬上 !<br/>
+                  Coder：Huluobos
             </p>
+        
         </div>
     </div>
 
@@ -47,22 +34,46 @@
 </script>
 
 <style scoped>
+  .title {
+        text-align: center;
+        font-size: 30px;
+        color: #000;
+        font-family: '微软雅黑';
+        font-weight: 700;
+        height: 75px;
+        line-height: 75px;
+    }
     .content {
         width: 1100px;
-        margin: 50px auto;
-        padding: 0 200px;
+        margin: 0px auto;
+        /* padding: 0 200px; */
         box-sizing: border-box;
+        position: fixed;
+        top:100px;
+        bottom: 70px;
+        left: 0;
+        right: 0;
     }
 
-    h1 {
-        text-align: center;
+  
+    .text{
+       margin-top: 50px;
     }
 
     p {
-        font-size: 18px;
+        font-size: 16px;
         color: #333;
         line-height: 34px;
         text-indent: 2em;
-        /*padding: 20px 0;*/
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+    }
+     .myCover {
+        font-size: 16px;
+        color: #333;
+        line-height: 34px;
+        text-align: center;
+        padding: 20px 0;
     }
 </style>

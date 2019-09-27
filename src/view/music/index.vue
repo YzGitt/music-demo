@@ -20,7 +20,7 @@
           <el-table-column prop="ar[0].name" label="明星"></el-table-column>
           <el-table-column fixed="right" label="操作" width="400">
             <template slot-scope="scope">
-              <el-button size="mini" @click="getMusicDetail(scope.row.id)">查看</el-button>
+              <!-- <el-button size="mini" @click="getMusicDetail(scope.row.id)">查看</el-button> -->
               <el-button
                 size="mini"
                 type="danger"

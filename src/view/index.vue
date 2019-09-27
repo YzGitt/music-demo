@@ -25,7 +25,11 @@
 
             </div>
             <!--卡巴斯基病毒防护插件-->
+            
             <div class="kaBaSiJi-iframe">
+                <div class="kaBaSiJi-top">
+                    Huluobos 音乐冒泡大数据
+                </div>
                 <!--<iframe width="900" height="640" src="https://cybermap.kaspersky.com/cn/widget/dynamic/light" frameborder="0"></iframe>-->
                 <iframe width="100%" height="700" src="https://cybermap.kaspersky.com/cn/widget/dynamic/dark" frameborder="0"></iframe>
             </div>
@@ -53,7 +57,9 @@
 				loveMusicListid:"",//0 是我喜欢，其他是别的歌单  我喜欢歌单的id
 				loveMusicList:[],  //我喜欢歌单 包含每首歌的名字和id
 
-				bannerList:[],//网易云轮播图
+                bannerList:[],//网易云轮播图
+                phoneNum:'18332725321',
+                pwd:'Huluobos1',
 			}
 		},
 		components: {
@@ -93,11 +99,31 @@
 				setTimeout(function () {
 					that.strs.push(key)
 				},index*200)
-			},
+            },
+             // 网易云登录
+            login() {
+                let that = this;
+                that.$axios.get("login", { phone: that.phoneNum, password: that.pwd }).then(res => {
+                    localStorage.setItem("userId", res.profile.userId);
+                    localStorage.setItem("nickname", res.profile.nickname);
+                    localStorage.setItem("avatarUrl", res.profile.avatarUrl);
+                    // localStorage.setItem("mytoken",res.profile)
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+                
+            },
+            
 		},
 		created(){
-			this.getBanner();
-        this.$store.dispatch("getUserData")//获取用户信息
+            let that = this;
+            that.getBanner();
+            if(localStorage.getItem('userId')!=null){
+               console.log("网易云已经可以推送")
+            }else{
+                that.login();
+            }
 		},
 	}
 </script>
@@ -163,12 +189,29 @@
     /*轮播图*/
 
 
-    /*卡巴斯基病毒防护start*/
+    /*卡巴斯基start*/
+    .kaBaSiJi-top{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 39px;
+        background-color: #000;
+        line-height: 39px;
+        text-align: center;
+        color: #ccc;
+         font-family: "楷体";
+         font-weight: 700;
+         font-size: 18px;
+         z-index: 99999;
+         overflow: hidden;
+    }
     .kaBaSiJi-iframe{
         width: 100%;
         margin: 0 auto;
+        position: relative
     }
-    /*卡巴斯基病毒防护end*/
+    /*卡巴斯基end*/
 
 
 

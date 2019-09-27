@@ -1,7 +1,7 @@
 <template>
-	<div>
+    <div>
 	 <headerDom></headerDom>
-	 <div class="weikaifang">评论模块暂未开放</div>
+	 <div class="weikaifang">web模块暂未开放</div>
 	</div>
 </template>
 

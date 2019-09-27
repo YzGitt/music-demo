@@ -1,12 +1,13 @@
 <template>
-	<div>
+<div>
 	 <headerDom></headerDom>
-	 <div class="weikaifang">评论模块暂未开放</div>
-	</div>
+	 <div class="weikaifang">照片模块暂未开放</div>
+</div>
+    
 </template>
 
 <script>
-import headerDom from "@/components/header";
+	import headerDom from "@/components/header";
 
 	export default {
 		name: "index",

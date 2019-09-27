@@ -6,7 +6,7 @@
 
                     <el-table-column type="index" label="序号" width="50"></el-table-column>
 
-                    <el-table-column prop="" label="选择" width="50">
+                    <el-table-column type="selection" prop="" label="选择" width="50">
 
                     </el-table-column>
 
@@ -24,7 +24,7 @@
                     <el-table-column prop="ar[0].name" label="明星"></el-table-column>
                     <el-table-column fixed="right" label="操作" width="400">
                     <template slot-scope="scope">
-                        <el-button size="mini" @click="getMusicDetail(scope.row.id)">删除</el-button>
+                        <!-- <el-button size="mini" @click="deleteMusicDetail(scope.row.id)">删除</el-button> -->
                         <el-button
                                 size="mini"
                                 type="danger"
@@ -62,10 +62,16 @@
 			return {
 				checkAll: false,  //是否全选
 				checkedCities: [], //选完了的数组
-				cities: ['上海', '北京', '广州', '深圳'], // 数据渲染
+				// cities: ['上海', '北京', '广州', '深圳'], // 数据渲染
 				isIndeterminate: false,
                 showMusicList:[], //展示的值
 				loveMusicList:[],//获取的值
+				total:0,
+
+
+
+				 phoneNum:'18332725321',
+                pwd:'Huluobos1',
             }
 		},
 		methods: {
@@ -80,22 +86,29 @@
 			getMyMusic(id) {
 				let that = this
 				that.$axios.get("myMusicDetail", { id: id,br:999000 }).then(result => {
-					console.dir(result)
+		
 					that.loveMusicList = result.playlist.tracks;
-					that.total = result.playlist.tracks.length;
+					that.total = result.playlist.trackCount;
 					that.handleCurrentChange(1);
 				}).catch(error => {
 					console.log(error);
 				});
 			},
 			//删除歌曲
-			deleteMusicDetail(key) {
-				this.$axios.get("tracks", { id: key }).then(res => {
-					// console.log(res);
-				}).catch(error => {
-					console.log(error);
-				});
-			},
+			// deleteMusicDetail(key) {
+			// 	let that = this
+			// 	that.$axios.get("tracks", {op:'del', pid: that.$route.query.id,tracks: key}).then(res => {
+			// 		console.log(res);
+			// 		that.$message({
+            //   			center: true,
+            //   			showClose: true,
+            //   			message: "删除成功.....",
+            //   			type: "success"
+            // 		});
+			// 	}).catch(error => {
+			// 		console.log(error);
+			// 	});
+			// },
 			//播放音乐
 			playMusic(item, key) {
 				this.$axios.get("eachMusicUrl", { id: key }).then(res => {
@@ -112,11 +125,29 @@
 				}).catch(error => {
 					console.log(error);
 				});
-			}
+			},
+			 // 网易云登录
+            // login() {
+            //     let that = this;
+            //     that.$axios.get("login", { phone: that.phoneNum, password: that.pwd }).then(res => {
+            //         localStorage.setItem("userId", res.profile.userId);
+            //         localStorage.setItem("nickname", res.profile.nickname);
+            //         localStorage.setItem("avatarUrl", res.profile.avatarUrl);
+            //         // localStorage.setItem("mytoken",res.profile)
+            //     })
+            //     .catch(err => {
+            //         console.log(err);
+            //     });
+                
+            // },
+            
 
         },
 		created() {
-			this.getMyMusic(this.$route.query.id)
+			let that = this
+			
+			that.getMyMusic(that.$route.query.id)
+			// that.login();
 		},
 	}
 </script>
