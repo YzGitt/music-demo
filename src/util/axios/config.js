@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 var instance = axios.create({
-  baseURL: 'http://cloudMusic.huluobos.top:3001',
+  baseURL: 'http://119.3.216.3:3001/',
   timeout: 15000
 })
 
